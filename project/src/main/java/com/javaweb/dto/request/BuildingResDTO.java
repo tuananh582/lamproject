@@ -1,10 +1,8 @@
-package com.javaweb.repository.entity;
+package com.javaweb.dto.request;
 
 import java.util.List;
 
-public class BuildingEntity {
-	private String name;
-
+public class BuildingResDTO {
 	public String getName() {
 		return name;
 	}
@@ -37,36 +35,12 @@ public class BuildingEntity {
 		this.floorArea = floorArea;
 	}
 
-	public Long getDistrictId() {
-		return districtId;
+	public String getAddress() {
+		return address;
 	}
 
-	public void setDistrictId(Long districtId) {
-		this.districtId = districtId;
-	}
-
-	public String getDistrictName() {
-		return districtName;
-	}
-
-	public void setDistrictName(String districtName) {
-		this.districtName = districtName;
-	}
-
-	public String getStreet() {
-		return street;
-	}
-
-	public void setStreet(String street) {
-		this.street = street;
-	}
-
-	public String getWard() {
-		return ward;
-	}
-
-	public void setWard(String ward) {
-		this.ward = ward;
+	public void setAddress(String address) {
+		this.address = address;
 	}
 
 	public String getManagerName() {
@@ -141,6 +115,38 @@ public class BuildingEntity {
 		this.level = level;
 	}
 
+	public Long getDistrictid() {
+		return districtid;
+	}
+
+	public void setDistrictid(Long districtid) {
+		this.districtid = districtid;
+	}
+
+	public String getDistrictName() {
+		return districtName;
+	}
+
+	public void setDistrictName(String districtName) {
+		this.districtName = districtName;
+	}
+
+	public String getStreet() {
+		return street;
+	}
+
+	public void setStreet(String street) {
+		this.street = street;
+	}
+
+	public String getWard() {
+		return ward;
+	}
+
+	public void setWard(String ward) {
+		this.ward = ward;
+	}
+
 	public List<String> getBuildingtype() {
 		return buildingtype;
 	}
@@ -157,13 +163,11 @@ public class BuildingEntity {
 		this.staffid = staffid;
 	}
 
+	private String name;
 	private Long numberOfBasement;
 	private Long rentPrice;
 	private Long floorArea;
-	private Long districtId;
-	private String districtName;
-	private String street;
-	private String ward;
+	private String address;
 	private String managerName;
 	private Long priceFrom;
 	private Long priceTo;
@@ -173,6 +177,10 @@ public class BuildingEntity {
 	private Long servicefee;
 	private Long brokeragefee;
 	private Long level;
+	private Long districtid;
+	private String districtName;
+	private String street;
+	private String ward;
 	private List<String> buildingtype;
 	private Long staffid;
 

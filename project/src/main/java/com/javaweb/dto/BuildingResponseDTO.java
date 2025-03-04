@@ -1,90 +1,109 @@
 package com.javaweb.dto;
 
+import java.util.List;
+
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 public class BuildingResponseDTO {
-	private Long id;
 	private String name;
-	private Long numberOfbasement;
-	private Long rentPrice;
-	private Long districtId;
-	private String street;
-	private String ward;
-	private String direction;
-	public String getDirection() {
-		return direction;
-	}
-	public void setDirection(String direction) {
-		this.direction = direction;
-	}
-	private String managername;
-	public String getAddress() {
-		return address;
-	}
-	public void setAddress(String address) {
-		this.address = address;
-	}
-	private String address;
-	public String getManagername() {
-		return managername;
-	}
-	public void setManagername(String managername) {
-		this.managername = managername;
-	}
-	public String getManagerphonenumber() {
-		return managerphonenumber;
-	}
-	public void setManagerphonenumber(String managerphonenumber) {
-		this.managerphonenumber = managerphonenumber;
-	}
-	public String getRentpricedescription() {
-		return rentpricedescription;
-	}
-	public void setRentpricedescription(String rentpricedescription) {
-		this.rentpricedescription = rentpricedescription;
-	}
-	private String managerphonenumber;
-	private String rentpricedescription;
-	
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
 		this.name = name;
 	}
-	public Long getNumberOfbasement() {
-		return numberOfbasement;
+
+	public Long getNumberOfBasement() {
+		return numberOfBasement;
 	}
-	public void setNumberOfbasement(Long numberOfbasement) {
-		this.numberOfbasement = numberOfbasement;
+
+	public void setNumberOfBasement(Long numberOfBasement) {
+		this.numberOfBasement = numberOfBasement;
 	}
+
 	public Long getRentPrice() {
 		return rentPrice;
 	}
+
 	public void setRentPrice(Long rentPrice) {
 		this.rentPrice = rentPrice;
 	}
-	public Long getDistrictId() {
-		return districtId;
+
+	public Long getFloorArea() {
+		return floorArea;
 	}
-	public void setDistrictId(Long districtId) {
-		this.districtId = districtId;
+
+	public void setFloorArea(Long floorArea) {
+		this.floorArea = floorArea;
 	}
-	public String getStreet() {
-		return street;
+
+	public String getAddress() {
+		return address;
 	}
-	public void setStreet(String street) {
-		this.street = street;
+
+	public void setAddress(String address) {
+		this.address = address;
 	}
-	public String getWard() {
-		return ward;
+
+	public String getManagerName() {
+		return managerName;
 	}
-	public void setWard(String ward) {
-		this.ward = ward;
+
+	public void setManagerName(String managerName) {
+		this.managerName = managerName;
 	}
-	
+
+	public Long getManagerPhonenumber() {
+		return managerPhonenumber;
+	}
+
+	public void setManagerPhonenumber(Long managerPhonenumber) {
+		this.managerPhonenumber = managerPhonenumber;
+	}
+
+	public Long getServicefree() {
+		return servicefree;
+	}
+
+	public void setServicefree(Long servicefree) {
+		this.servicefree = servicefree;
+	}
+
+	public Long getBrokeragefree() {
+		return brokeragefree;
+	}
+
+	public void setBrokeragefree(Long brokeragefree) {
+		this.brokeragefree = brokeragefree;
+	}
+
+	public Long getLevel() {
+		return level;
+	}
+
+	public void setLevel(Long level) {
+		this.level = level;
+	}
+
+	public List<String> getBuildingtype() {
+		return buildingtype;
+	}
+
+	public void setBuildingtype(List<String> buildingtype) {
+		this.buildingtype = buildingtype;
+	}
+
+	private Long numberOfBasement;
+	private Long rentPrice;
+	private Long floorArea;
+	@JsonProperty(value = "Address _building")
+	private String address;
+	private String managerName;
+	private Long managerPhonenumber;
+	private Long servicefree;
+	private Long brokeragefree;
+	private Long level;
+	private List<String> buildingtype;
 }

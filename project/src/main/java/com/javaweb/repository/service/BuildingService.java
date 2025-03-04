@@ -4,7 +4,10 @@ import java.util.List;
 import java.util.Map;
 
 import com.javaweb.dto.BuildingResponseDTO;
+import com.javaweb.dto.request.BuildingResDTO;
 
 public interface BuildingService {
-	List<BuildingResponseDTO> find(String nameBuilding, Long numberOfBasement);
+	List<BuildingResponseDTO> find(BuildingResDTO buidlingresDTo);
+
+	
 }
