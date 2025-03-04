@@ -34,6 +34,7 @@ public class DistrictRepositoryImpl implements DistrictRepository {
 	                results.add(district);
 	            }
 			 
+			 
 		 } catch (SQLException ex) {
 	            System.out.println("Kết nối database thất bại...");
 	            ex.printStackTrace();

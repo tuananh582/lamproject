@@ -28,7 +28,6 @@ public class DistrictServiceImpl implements DistrictService {
 			districtResponse.setCode(districtEntity.getCode());
 			districtResponse.setName(districtEntity.getName());
 			results.add(districtResponse);
-			
 		}
 		
 		return results;

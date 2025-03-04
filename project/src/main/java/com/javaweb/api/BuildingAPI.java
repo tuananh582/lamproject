@@ -25,20 +25,19 @@ public class BuildingAPI {
 	private BuildingService buildingService;
 	private DistrictService districtService;
 
-	@GetMapping()
+	//@GetMapping()
 	public Object getBuidings(@ModelAttribute BuildingResDTO buldingResdto) {
 
 		List<BuildingResponseDTO> results = buildingService.find(buldingResdto);
 		return results;
 	}
 
-	@GetMapping()
+	//@GetMapping()
 	public ResponseEntity<List<DistrictReponseDTO>> getDistrict(
 	        @RequestParam(name = "districtid", required = false) Long districtId,
 	        @RequestParam(name = "code", required = false) String code,
 	        @RequestParam(name = "name", required = false) String name) {
 	    List<DistrictReponseDTO> results = districtService.findall(districtId, code, name);
-	    
 	    if (results.isEmpty()) {
 	        return null;
 	    }
