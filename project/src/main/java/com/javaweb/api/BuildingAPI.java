@@ -1,6 +1,7 @@
 package com.javaweb.api;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -26,22 +27,12 @@ public class BuildingAPI {
 	private DistrictService districtService;
 
 	//@GetMapping()
-	public Object getBuidings(@ModelAttribute BuildingResDTO buldingResdto) {
+	public Object getBuilding(@RequestParam Map<String, Object>params,@RequestParam(name = "typecode",required = false)List<String>typeCode) {
 
-		List<BuildingResponseDTO> results = buildingService.find(buldingResdto);
+		List<BuildingResponseDTO> results = buildingService.findAll(params,typeCode);
+
 		return results;
 	}
 
-	//@GetMapping()
-	public ResponseEntity<List<DistrictReponseDTO>> getDistrict(
-	        @RequestParam(name = "districtid", required = false) Long districtId,
-	        @RequestParam(name = "code", required = false) String code,
-	        @RequestParam(name = "name", required = false) String name) {
-	    List<DistrictReponseDTO> results = districtService.findall(districtId, code, name);
-	    if (results.isEmpty()) {
-	        return null;
-	    }
-	    
-	    return ResponseEntity.ok(results); 
-	}
+	
 }

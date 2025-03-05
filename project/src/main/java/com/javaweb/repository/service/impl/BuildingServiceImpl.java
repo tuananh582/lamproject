@@ -18,39 +18,26 @@ public class BuildingServiceImpl implements BuildingService {
 	@Autowired
 	private BuildingRepository buildingRepository;
 	
-	
-	
-	
-	@Override
-	public List<BuildingResponseDTO> find(BuildingResDTO buidlingresDTO) {
-		// TODO Auto-generated method stub
-		
-		List<BuildingEntity>buildingEntities = buildingRepository.findall(buidlingresDTO);
-		
-		
-		
-		
-		
-		//filter
-		
-		
-		List<BuildingResponseDTO> results = new ArrayList<BuildingResponseDTO>();
-		for (BuildingEntity buildingEntity : buildingEntities) {
-			 BuildingResponseDTO buildingResponse = new BuildingResponseDTO();
-			    buildingResponse.setName(buildingEntity.getName());
-			    buildingResponse.setAddress(buildingEntity.getStreet() + ", " + buildingEntity.getWard() + ", " + buildingEntity.getDistrictName());
-			    buildingResponse.setFloorArea(buildingEntity.getFloorArea());
-			    buildingResponse.setNumberOfBasement(buildingEntity.getNumberOfBasement());
-			    buildingResponse.setRentPrice(buildingEntity.getRentPrice());
-			    buildingResponse.setBrokeragefree(buildingEntity.getBrokeragefee());
-			    buildingResponse.setServicefree(buildingEntity.getServicefee());
-			    buildingResponse.setManagerPhonenumber(buildingEntity.getManagerPhonenumber());
-			    buildingResponse.setManagerName(buildingEntity.getManagerName());
-			    buildingResponse.setLevel(buildingEntity.getLevel());
-			    results.add(buildingResponse);
-		}
-		return results;
 
+	@Override
+	public List<BuildingResponseDTO> findAll(Map<String, Object> params, List<String> typeCode) {
+		// TODO Auto-generated method stub
+		List<BuildingEntity> buildindEntities = buildingRepository.findall(params, typeCode);
+
+		// filter
+		List<BuildingResponseDTO> results = new ArrayList<BuildingResponseDTO>();
+		for (BuildingEntity buildingEntity : buildindEntities) {
+			BuildingResponseDTO buildingResponseDTO = new BuildingResponseDTO();
+			buildingResponseDTO.setId(buildingEntity.getId());
+			buildingResponseDTO.setName(buildingEntity.getName());
+			buildingResponseDTO.setNumberOfbasement(buildingEntity.getNumberOfbasement());
+			buildingResponseDTO.setRentPrice(buildingEntity.getRentPrice());
+			buildingResponseDTO.setAddress(
+			buildingEntity.getStreet() + "," + buildingEntity.getWard() + "," + buildingEntity.getDistrictId());
+			results.add(buildingResponseDTO);
+		}
+
+		return results;
 		
 	}
 

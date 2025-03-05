@@ -7,7 +7,7 @@ import com.javaweb.dto.BuildingResponseDTO;
 import com.javaweb.dto.request.BuildingResDTO;
 
 public interface BuildingService {
-	List<BuildingResponseDTO> find(BuildingResDTO buidlingresDTo);
+	List<BuildingResponseDTO> findAll(Map<String, Object>params,List<String>typeCode);
 
 	
 }

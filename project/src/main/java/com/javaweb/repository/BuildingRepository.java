@@ -7,5 +7,5 @@ import com.javaweb.dto.request.BuildingResDTO;
 import com.javaweb.repository.entity.BuildingEntity;
 
 public interface BuildingRepository {
-	List<BuildingEntity> findall(BuildingResDTO buildingresDTO);
+	List<BuildingEntity> findall(Map<String, Object>params,List<String>typeCode);
 }
