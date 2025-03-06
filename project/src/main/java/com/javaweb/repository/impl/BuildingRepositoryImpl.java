@@ -27,11 +27,11 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 	private void buildingJoin(Map<String, Object> params, List<String> typeCode, StringBuilder join) {
 		String staffId = (String) params.get("staffId");
 		if (StringUtil.isnotBlank(staffId)) {
-			join.append("join assignmentbuilding asb on asb.buildingid = b.id");
+			join.append(" join assignmentbuilding asb on asb.buildingid = b.id");
 		}
 		if (!typeCode.isEmpty()) {
-			join.append("join buildingrenttype brt on brt.buildingid = b.id");
-			join.append("join renttype rt on rt.id = brt.renttypeid");
+			join.append(" join buildingrenttype brt on brt.buildingid = b.id");
+			join.append(" join renttype rt on rt.id = brt.renttypeid");
 		}
 		String rentAreaFrom = (String) params.get("rentAreaFrom");
 		String rentAreaTo = (String) params.get("rentAreaTo");
@@ -89,8 +89,8 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 	
 	@Override
 	public List<BuildingEntity> findall(Map<String, Object> params, List<String> typeCode) {
-		StringBuilder sql = new StringBuilder("SELECT b.* FROM building b WHERE 1=1");
-		StringBuilder where = new StringBuilder("WHERE 1=1");
+		StringBuilder sql = new StringBuilder("SELECT b.* FROM building b");
+		StringBuilder where = new StringBuilder(" WHERE 1=1");
 		buildingJoin(params, typeCode, sql);
 		buildCondition(params, typeCode, where);
 		sql.append(where).append(" GROUP BY b.id");
