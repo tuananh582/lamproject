@@ -12,12 +12,12 @@ import com.javaweb.dto.request.BuildingResDTO;
 import com.javaweb.repository.BuildingRepository;
 import com.javaweb.repository.entity.BuildingEntity;
 import com.javaweb.repository.service.BuildingService;
+
 @Service
 public class BuildingServiceImpl implements BuildingService {
 
 	@Autowired
 	private BuildingRepository buildingRepository;
-	
 
 	@Override
 	public List<BuildingResponseDTO> findAll(Map<String, Object> params, List<String> typeCode) {
@@ -32,21 +32,19 @@ public class BuildingServiceImpl implements BuildingService {
 			buildingResponseDTO.setName(buildingEntity.getName());
 			buildingResponseDTO.setNumberOfbasement(buildingEntity.getNumberOfbasement());
 			buildingResponseDTO.setRentPrice(buildingEntity.getRentPrice());
-			buildingResponseDTO.setAddress(
-			buildingEntity.getStreet() + "," + buildingEntity.getWard() + "," + buildingEntity.getDistrictId());
+			buildingResponseDTO.setAddress(buildingEntity.getStreet() + "," + buildingEntity.getWard() + ","
+					+ buildingEntity.getDistrictName());
+			buildingResponseDTO.setManagerPhoneNumber(buildingEntity.getManagerPhonenumber());
+			buildingResponseDTO.setManagerName(buildingEntity.getManagerName());
+			buildingResponseDTO.setFloorArea(buildingEntity.getFloorArea());
+			buildingResponseDTO.setRentPrices(buildingEntity.getRentPrices());
+			buildingResponseDTO.setRentValues(buildingEntity.getRentValues());
+
 			results.add(buildingResponseDTO);
 		}
 
 		return results;
-		
+
 	}
-
-	
-	
-
-	
-	
-	
-	
 
 }

@@ -1,5 +1,6 @@
 package com.javaweb.api;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -26,9 +27,17 @@ public class BuildingAPI {
 	private BuildingService buildingService;
 	private DistrictService districtService;
 
-	//@GetMapping()
-	public Object getBuilding(@RequestParam Map<String, Object>params,@RequestParam(name = "typecode",required = false)List<String>typeCode) {
+	@GetMapping()
+	public Object getBuilding(@RequestParam(required = false) Map<String, Object>params,@RequestParam(name = "typecode",required = false)List<String>typeCode,@RequestParam(value = "districtid", required = false) Long districtid) {
 
+		 if (districtid != null) {
+		        params.put("districtid", districtid);
+		    }
+		    
+		    // Đảm bảo typeCodes không null
+		    if (typeCode == null) {
+		    	typeCode = new ArrayList<>();
+		    }
 		List<BuildingResponseDTO> results = buildingService.findAll(params,typeCode);
 
 		return results;
