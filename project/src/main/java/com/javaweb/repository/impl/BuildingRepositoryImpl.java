@@ -2,6 +2,7 @@ package com.javaweb.repository.impl;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -115,4 +116,52 @@ public class BuildingRepositoryImpl implements BuildingRepository {
 		}
 		return results;
 	}
+	 public List<BuildingEntity> findByDistrictId(Long districtId) {
+	        StringBuilder sql = new StringBuilder("SELECT b.*, " + 
+	                "d.name AS district_name, " +
+	                "GROUP_CONCAT(DISTINCT ra.value ORDER BY ra.value SEPARATOR ', ') AS rent_values, " +
+	                "GROUP_CONCAT(DISTINCT b.rentprice SEPARATOR ', ') AS rent_prices " + 
+	                "FROM building b " +
+	                "JOIN district d ON b.districtid = d.id " + 
+	                "LEFT JOIN rentarea ra ON ra.buildingid = b.id " +
+	                "WHERE b.districtid = ? " +
+	                "GROUP BY b.id, d.name");
+	        
+	        System.out.println("SQL Query: " + sql); // Debug SQL
+
+	        List<BuildingEntity> results = new ArrayList<>();
+	        try (Connection con = ConnectionDriverUtils.getConnection();
+	                PreparedStatement ps = con.prepareStatement(sql.toString())) {
+	                
+	            ps.setLong(1, districtId);
+	            
+	            try (ResultSet rs = ps.executeQuery()) {
+	                System.out.println("Connected to database successfully");
+
+	                while (rs.next()) {
+	                    BuildingEntity building = new BuildingEntity();
+	                    building.setId(rs.getLong("id"));
+	                    building.setName(rs.getString("name"));
+	                    building.setDistrictId(rs.getLong("districtid"));
+	                    building.setNumberOfbasement(rs.getLong("numberofbasement"));
+	                    building.setStreet(rs.getString("street"));
+	                    building.setWard(rs.getString("ward"));
+	                    building.setRentPrice(rs.getLong("rentprice"));
+	                    building.setFloorarea(rs.getLong("floorarea"));
+	                    building.setDistrictName(rs.getString("district_name"));
+	                    building.setManagerName(rs.getString("managername"));
+	                    building.setManagerPhonenumber(rs.getString("managerphonenumber"));
+	                    building.setBrokeragefee(rs.getLong("brokeragefee"));
+	                    building.setServicefee(rs.getLong("servicefee"));
+	                    building.setRentValues(rs.getString("rent_values"));
+	                    building.setRentPrices(rs.getString("rent_prices"));
+	                    results.add(building);
+	                }
+	            }
+	        } catch (SQLException ex) {
+	            System.out.println("Database connection failed");
+	            ex.printStackTrace();
+	        }
+	        return results;
+	    }
 }
