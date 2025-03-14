@@ -2,10 +2,12 @@ com/javaweb/repository/service/DistrictService.class
 com/javaweb/repository/impl/BuildingRepositoryImpl.class
 com/javaweb/Application.class
 com/javaweb/dto/ValidateDataBuildingException.class
+com/javaweb/repository/impl/RentTypeRepository.class
 com/javaweb/dto/request/BuildingResDTO.class
 com/javaweb/dto/ErrorDetailReponse.class
 com/javaweb/dto/BuildingResponseDTO.class
 com/javaweb/controlleradvice/ControllerAdvisor.class
+com/javaweb/repository/impl/RentAreaRepository.class
 com/javaweb/repository/entity/BuildingEntity.class
 com/javaweb/api/BuildingAPI.class
 com/javaweb/repository/entity/DistrictEntity.class
@@ -14,4 +16,5 @@ com/javaweb/repository/utils/ConnectionDriverUtils.class
 com/javaweb/repository/service/BuildingService.class
 com/javaweb/dto/DistrictReponseDTO.class
 com/javaweb/repository/service/impl/BuildingServiceImpl.class
+com/javaweb/repository/impl/DistrictRepository.class
 com/javaweb/repository/utils/StringUtil.class

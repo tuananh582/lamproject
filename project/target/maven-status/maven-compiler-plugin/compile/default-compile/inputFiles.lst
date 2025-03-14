@@ -2,6 +2,8 @@
 /Volumes/work/java/project/src/main/java/com/javaweb/Application.java
 /Volumes/work/java/project/src/main/java/com/javaweb/repository/utils/StringUtil.java
 /Volumes/work/java/project/src/main/java/com/javaweb/dto/BuildingResponseDTO.java
+/Volumes/work/java/project/src/main/java/com/javaweb/repository/impl/RentAreaRepository.java
+/Volumes/work/java/project/src/main/java/com/javaweb/repository/impl/DistrictRepository.java
 /Volumes/work/java/project/src/main/java/com/javaweb/dto/DistrictReponseDTO.java
 /Volumes/work/java/project/src/main/java/com/javaweb/repository/impl/BuildingRepositoryImpl.java
 /Volumes/work/java/project/src/main/java/com/javaweb/api/BuildingAPI.java
@@ -15,3 +17,4 @@
 /Volumes/work/java/project/src/main/java/com/javaweb/dto/request/BuildingResDTO.java
 /Volumes/work/java/project/src/main/java/com/javaweb/repository/entity/BuildingEntity.java
 /Volumes/work/java/project/src/main/java/com/javaweb/controlleradvice/ControllerAdvisor.java
+/Volumes/work/java/project/src/main/java/com/javaweb/repository/impl/RentTypeRepository.java
